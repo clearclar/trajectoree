@@ -117,7 +117,7 @@ resampleYears <- function(traj){
 #' @examples
 #' resampleTimestamp(movefile, 'week')
 resampleInterval <- function(traj, interval){
-  print(paste0('The object size used to be ', object.size(traj_sf) %>% format(., units = 'Mb')))
+  print(paste0('The object size used to be ', object.size(traj) %>% format(., units = 'Mb')))
   if (unlist(class(traj[1]))[1] == 'sf'){
     traj_sf <- traj
   }

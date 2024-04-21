@@ -3,6 +3,7 @@
 export(calcIndices)
 export(defCol)
 export(downRast)
+export(intergrate_move)
 export(long2UTM)
 export(rast.UD)
 export(reclassNA)
