@@ -22,15 +22,10 @@ visTrajEe <- function(traj, collection, bands){
 
   VisCol <- ee$ImageCollection(collection)
   traj_ee <- rgee::sf_as_ee(traj_sf['geometry'])
-  #roi_ee <- ee$FeatureCollection(traj_ee)
 
-  Map$addLayer(VisCol$median(),
-               visParams = list(bands = bands, min = 0, max = 3000),
-               name = "Satellite imagery") +
-    Map$addLayer(traj_ee,
-                 visParams = list(color = 'red'),
-                 name = "Trajectory points")
-  if (length(bands) == 1 & bands[[1]] == 'NDVI' | bands[[1]] == 'NDWI' | bands[[1]] == 'NDSI'){
+  Map$centerObject(traj_ee)
+
+  if (length(bands) == 1 & (bands[[1]] == 'NDVI' | bands[[1]] == 'NDWI' | bands[[1]] == 'NDSI')){
     Map$addLayer(VisCol$median(),
                  visParams = list(bands = bands, min = 0, max = 1),
                  name = bands[[1]]) +
@@ -38,6 +33,7 @@ visTrajEe <- function(traj, collection, bands){
                    visParams = list(color = 'red'),
                    name = "Trajectory points")
   }
+
   else {
     Map$addLayer(VisCol$median(),
                  visParams = list(bands = bands, min = 0, max = 3000),
