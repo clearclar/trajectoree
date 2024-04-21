@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
-
 # trajectoree - a package linking move data to satellite imagery and visualizing occurence probability and homerange
 
 Bla some text.
