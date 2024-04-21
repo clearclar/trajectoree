@@ -88,6 +88,8 @@ intergrate_move <- function(move_data) {
           return(new_timestamp)
         })
 
+        move_sf$timestamp <- as.POSIXct(move_sf$timestamp)
+
         new_start <- move_sf$timestamp[[1]]
         new_end <- tail(move_sf$timestamp, 1)[[1]]
 
