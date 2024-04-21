@@ -29,7 +29,7 @@ long2UTM <- function(long) {
 #' sf2ctmm(traj)
 sf2ctmm <- function(traj){
 
-  df <- cbind(as.data.frame(traj), st_coordinates(traj))
+  df <- cbind(as.data.frame(traj), sf::st_coordinates(traj))
   df$geometry <- NULL
 
   # make sure naming conventions match ctmm/move
@@ -44,11 +44,11 @@ sf2ctmm <- function(traj){
   colnames(df)[colnames(df) == "X"] <- "location.long"
   colnames(df)[colnames(df) == "Y"] <- "location.lat"
 
-  traj.m <- df2move(df, proj = st_crs(traj), x = "location.long", y = "location.lat", time = "timestamp", track_id = "individual.local.identifier")
-  traj.ctmm <- as.telemetry(traj.m)
+  traj.m <- moveVis::df2move(df, proj = sf::st_crs(traj), x = "location.long", y = "location.lat", time = "timestamp", track_id = "individual.local.identifier")
+  traj.ctmm <- ctmm::as.telemetry(traj.m)
 
   # center the projection on the geometric median of the data
-  projection(traj.ctmm) <- median(traj.ctmm)
+  ctmm::projection(traj.ctmm) <- ctmm::median(traj.ctmm)
 
   return(traj.ctmm)
 }

@@ -147,30 +147,31 @@ calcIndices <- function(collection, indices){
 #' @examples
 #' downRast(traj_sf, collection, 'img', TRUE, 10)
 downRast <- function(traj, collection, filename='img', median=TRUE, scale=30) {
-  print(paste0('Saving to current working directory: ', getwd()))
-  if (unlist(class(traj[1]))[1] == 'sf'){
+  at("Saving to current working directory: ", getwd(), "\n")
+
+  # Convert traj to sf if it's not already in sf format
+  if (!inherits(traj, "sf")) {
+    traj_sf <- sf::st_as_sf(traj)
+  } else {
     traj_sf <- traj
   }
-  if (unlist(class(traj[1]))[1] != 'sf') {
-    traj_sf <- sf::st_as_sf(traj)
-  }
 
+  # Convert sf to ee
   traj_ee <- rgee::sf_as_ee(traj_sf['geometry'])
-  roi_ee <-  ee$FeatureCollection(traj_ee)
+  roi_ee <- ee$FeatureCollection(traj_ee)
   bounds <- roi_ee$geometry()$bounds()
 
-  # do not create median image, ask if number of images is acceptable
-  if(median==FALSE){
-    collection_down <- collection
-    print(paste0('Number of image in the ImageCollection: ', collection$size()$getInfo()))
-    decision <- readline(prompt="Do you want to proceed to download the data? ['hellyeah'/'nope']: ")
-    if(decision=='nope'){
-      stop('Aborted, please alter your time range or cloud cover percentage.', call. = FALSE)
+  # If median is FALSE, ask for user confirmation before proceeding
+  if (median == FALSE) {
+    cat("Number of images in the ImageCollection: ", collection$size()$getInfo(), "\n")
+    decision <- readline(prompt = "Do you want to proceed to download the data? (y/n): ")
+    if (tolower(decision) == 'n') {
+      stop("Aborted, please alter your time range or cloud cover percentage.", call. = FALSE)
     }
   }
 
   # create median image
-  if(median==TRUE){
+  else if (median==TRUE){
     collection_down <- collection$median()
   }
 
@@ -192,3 +193,4 @@ downRast <- function(traj, collection, filename='img', median=TRUE, scale=30) {
   )
 
 }
+
