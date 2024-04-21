@@ -4,6 +4,15 @@
 #' @param DF Rasterize the probability density function "PDF", probability mass function "PMF", or cumulative distribution function "CDF".
 #' @param ...
 #'
+#' @importFrom terra rast
+#' @importFrom terra set.values
+#' @importFrom terra xmin
+#' @importFrom terra xmax
+#' @importFrom terra ymin
+#' @importFrom terra ymax
+#' @importFrom dplyr last
+#'
+#'
 #' @return A terra object
 #' @export
 #'
@@ -18,10 +27,10 @@ rast.UD <- function(x,DF="CDF",...)
   dy <- UD$dr[2]
 
   xmn <- UD$r$x[1]-dx/2
-  xmx <- last(UD$r$x)+dx/2
+  xmx <- dplyr::last(UD$r$x)+dx/2
 
   ymn <- UD$r$y[1]-dy/2
-  ymx <- last(UD$r$y)+dy/2
+  ymx <- dplyr::last(UD$r$y)+dy/2
 
   z <- UD$r$z
 
@@ -36,14 +45,14 @@ rast.UD <- function(x,DF="CDF",...)
     UD <- t(UD[,dim(UD)[2]:1])
     R <- terra::rast(UD,#xmin=xmn,xmax=xmx,ymin=ymn,ymax=ymx,
                      crs=proj)
-    xmin(R) <- xmn
-    xmax(R) <- xmx
-    ymin(R) <- ymn
-    ymax(R) <- ymx
+    terra::xmin(R) <- xmn
+    terra::xmax(R) <- xmx
+    terra::ymin(R) <- ymn
+    terra::ymax(R) <- ymx
   }
   else
   {
-    UD <- aperm(UD[,dim(UD)[2]:1,],c(2,1,3))
+    UD <- aperm(UD[,terra::dim(UD)[2]:1,],c(2,1,3))
     R <- terra::rast(UD,xmin=xmn,xmax=xmx,ymin=ymn,ymax=ymx,crs=proj)
     R <- terra::set.values(R,z,name="height")
   }
