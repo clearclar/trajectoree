@@ -23,7 +23,7 @@ visTrajEe <- function(traj, collection, bands){
   VisCol <- ee$ImageCollection(collection)
   traj_ee <- rgee::sf_as_ee(traj_sf['geometry'])
 
-  Map$centerObject(traj_ee)
+  Map$centerObject(traj_ee$geometry()$bounds())
 
   if (length(bands) == 1 & (bands[[1]] == 'NDVI' | bands[[1]] == 'NDWI' | bands[[1]] == 'NDSI')){
     Map$addLayer(VisCol$median(),
