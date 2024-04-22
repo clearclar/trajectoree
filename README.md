@@ -25,6 +25,9 @@ move_data <- move("move_data.csv")
 # Resample sampling interval and time range if needed, depending on the sensor you wish to use.
 # Sentinel-2 data is available reliably after 2019, Landsat-8 after 2013.
 traj <- intergrate_move(move_data)
+
+# list of bands to be selected
+bands <- list("B4", "B3", "B2", 'B8', 'B11')
 ```
 #### Workflow part I
 <img src="flowchart1.png" alt="drawing" width="400"/>
