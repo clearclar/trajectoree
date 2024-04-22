@@ -13,7 +13,6 @@ devtools::install_github("clearclar/trajectoree")
 ## Examples 
 #### Workflow part I
 <img src="flowchart1.png" alt="drawing" width="200"/>
-![alt text](flowchart1.png)
 ## References
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
