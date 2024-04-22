@@ -57,7 +57,7 @@ visTrajDown(traj, 'img')
 ```
 
 
-<p align="right">
+<p align="center">
   <img width="450" src="images/flowchart1.png">
 </p>
 
