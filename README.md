@@ -11,6 +11,7 @@ Further information on the [ctmm package](https://ctmm-initiative.github.io/ctmm
 devtools::install_github("clearclar/trajectoree")
 ```
 ## Workflow 
+#### Workflow part I
 
 ```
 library(rgee)
@@ -47,7 +48,6 @@ downRast(traj, procInd)
 # Create a plot showing the satellite image and the sampling points
 visTrajDown(traj, 'img')
 ```
-#### Workflow part I
 <img src="flowchart1.png" alt="drawing" width="400"/>
 
 ## References
