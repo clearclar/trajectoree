@@ -99,7 +99,8 @@ visTrajDown <- function(traj, filename){
     tidyterra::geom_spatraster_rgb(data=image,
                                    interpolate = TRUE,
                                    max_col_value = 3000) +
-    geom_sf(data = traj_sf, aes(colour = timestamp)) +
-    theme_light() +
-    ggtitle("RGB Plot with Trajectory Overlay")
+    ggplot2::geom_sf(data = traj_sf, aes(colour = timestamp)) +
+    ggplot2::theme_light() +
+    ggplot2::ggtitle("RGB Plot with Trajectory Overlay") +
+    ggplot2::scale_color_manual(values=c("red", "blue", "green"))
 }

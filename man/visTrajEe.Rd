@@ -4,7 +4,7 @@
 \alias{visTrajEe}
 \title{Title}
 \usage{
-visTrajEe(traj, collection, visparams = "RGB")
+visTrajEe(traj, collection, bands = "RGB")
 }
 \arguments{
 \item{collection}{an rgee image collection}
