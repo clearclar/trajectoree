@@ -1,6 +1,5 @@
-<img align="right" width="200" height="200" src="Picture 4.png">
-
 # trajectoree
+<img align="right" width="200" height="200" src="Picture 4.png">
 
 #### Linking move data to reflectance values from satellite imagery and visualizing occurence probability.
 
