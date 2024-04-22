@@ -18,13 +18,12 @@ library(move)
 library(trajectoree)
 
 ee_Initialize(drive = TRUE)
-```
-#### Import a move file
-```
+
+# Import a move file.
 move_data <- move("move_data.csv")
-```
-#### Resample file size
-```
+
+# Resample sampling interval and time range if needed, depending on the sensor you wish to use.
+# Sentinel-2 data is available reliably after 2019, Landsat-8 after 2013.
 traj <- intergrate_move(move_data)
 ```
 #### Workflow part I
