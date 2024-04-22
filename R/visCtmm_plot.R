@@ -30,11 +30,12 @@ visOcc_AKDE_plot <- function(traj_model, img_filename, band){
   akde_df <- cbind.data.frame(values(image[band]), values(akde_rast_reproject))
   names(akde_df) <- c(band, "occ_rev")
 
-  # ggplot(data = akde_df, aes(x = akde_df[band], y = occ_rev)) +
-  #   geom_point(alpha = 0.1) +
-  #   geom_rug(alpha = 0.01) +
-  #   theme_light() +
-  #   ggtitle(paste0("Occurence vs ", toString(band)))
+  ggplot(data = akde_df, aes(x = akde_df[[band]], y = occ_rev)) +
+    geom_point(alpha = 0.1) +
+    geom_rug(alpha = 0.01) +
+    theme_light() +
+    ggtitle(paste0("Occurence vs ", band)) +
+    xlab(band) + ylab("Occurence") # Add axis labels
 
   raster::plot(raster(akde_rast_reproject), raster(image[band]), maxpixels = 1e6,
                main = paste0('Occurence vs ', toString(band)), ylab = 'Occurence')
@@ -56,31 +57,32 @@ visOcc_AKDE_plot <- function(traj_model, img_filename, band){
 #'
 #' @examples
 #' visOcc_UD_plot(traj_model, 'img_filename', 'B4')
-visOcc_UD_plot <- function(traj_model, img_filename, band){
+visOcc_UD_plot <- function(traj_model, img_filename, band) {
   image <- terra::rast(paste0(img_filename, '.tif'))
 
   # Autocorrelated Kernel Density Estimation
   UD_rast <- trajectoree::rast.UD(traj_model$od)
   UD_rast_invert <- terra::app(UD_rast, function(i)
-    (i-1)*(-1))
+    (i - 1) * (-1))
   UD_rast_cutoff <- trajectoree::reclassNA(UD_rast_invert, 0.05)
   UD_rast_reproject <- terra::project(UD_rast_cutoff, crs(image))
 
   image <- terra::resample(image, UD_rast_reproject, method = "bilinear")
 
-  #Create a data frame from the raster values
+  # Create a data frame from the raster values
   ud_df <- cbind.data.frame(values(image[band]), values(UD_rast_reproject))
   names(ud_df) <- c(band, "occ_rev")
 
-  # ggplot(data = ud_df, aes(x = ud_df[band], y = occ_rev)) +
-  #   geom_point(alpha = 0.1) +
-  #   geom_rug(alpha = 0.01) +
-  #   theme_light() +
-  #   ggtitle(paste0("Occurence vs ", toString(band)))
+  # Plot using ggplot
+  ggplot(data = ud_df, aes(x = ud_df[[band]], y = occ_rev)) +
+    geom_point(alpha = 0.1) +
+    geom_rug(alpha = 0.01) +
+    theme_light() +
+    ggtitle(paste0("Occurence vs ", band)) +
+    xlab(band) + ylab("Occurence") # Add axis labels
 
   raster::plot(raster(UD_rast_reproject), raster(image[band]), maxpixels = 1e6,
                main = paste0('Occurence vs ', toString(band)), ylab = 'Occurence')
-
 }
 
 #' Title
