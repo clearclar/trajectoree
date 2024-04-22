@@ -48,7 +48,7 @@ downRast(traj, procInd)
 # Create a plot showing the satellite image and the sampling points
 visTrajDown(traj, 'img')
 ```
-<img src="36edf328-a566-4f7a-b2bd-898f36f736ff.png" alt="drawing" width="400"/> <img src="e0e083db-6b7b-4d03-b96b-ce4005916f8a.png" alt="drawing" width="400"/>
+<img src="36edf328-a566-4f7a-b2bd-898f36f736ff.png" alt="drawing" width="300"/> <img src="e0e083db-6b7b-4d03-b96b-ce4005916f8a.png" alt="drawing" width="500"/>
 
 
 <img src="flowchart1.png" alt="drawing" width="400"/>
