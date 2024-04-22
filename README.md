@@ -58,7 +58,7 @@ visTrajDown(traj, 'img')
 
 
 <p align="center">
-  <img width="600" src="images/Untitled Diagram.drawio copy 2.png">
+  <img width="700" src="images/Untitled Diagram.drawio copy 2.png">
 </p>
 
 #### Workflow part II
