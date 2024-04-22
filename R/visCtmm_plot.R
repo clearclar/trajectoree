@@ -2,19 +2,16 @@
 #'
 #' @param traj_model a ctmm model, output of traj_mod()
 #' @param img_filename the name of the image file
-#' @param band the band to be plotted
-#'
-#' @importFrom ctmm raster
-#' @importFrom trajectoree reclassNA
-#' @importFrom terra project app resample values rast
-#' @importFrom raster plot
+#' @param band band name to be plotted
+#' @param info 'akde' or 'od'
+#' @param plottype 'ggplot' or 'raster'
 #'
 #' @return a plot of the occurence vs the band
 #' @export
 #'
 #' @examples
-#' visOcc_AKDE_plot(traj_model, 'img_filename', 'B4')
-visOcc_AKDE_plot <- function(traj_model, img_filename, band, info, plottype='ggplot'){
+#' visOcc_plot(traj_model, 'img_filename', 'NDVI', 'akde', 'ggplot')
+visOcc_plot <- function(traj_model, img_filename, band, info, plottype='ggplot'){
   image <- terra::rast(paste0(img_filename, '.tif'))
 
   if (info=='akde'){
@@ -41,10 +38,11 @@ visOcc_AKDE_plot <- function(traj_model, img_filename, band, info, plottype='ggp
       geom_rug(alpha = 0.01) +
       theme_light() +
       ggtitle(paste0("Occurence vs ", band)) +
-      xlab(band) + ylab("Occurence") # Add axis labels
+      xlab(band) + ylab("Occurence") + coord_flip() # Add axis labels
   } else if (plottype == 'raster'){
     raster::plot(raster(akde_rast_reproject), raster(image[band]), maxpixels = 1e6,
-                 main = paste0('Occurence vs ', toString(band)), ylab = 'Occurence')
+                 main = paste0('Occurence vs ', toString(band)),
+                 xlab='Occurence', ylab=toString(band))
   }
 }
 
