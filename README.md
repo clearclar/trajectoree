@@ -1,5 +1,6 @@
 # trajectoree
 <img align="right" width="100" height="100" src="https://picsum.photos/100/100">
+
 #### Linking move data to reflectance values from satellite imagery and visualizing occurence probability.
 
 A package, integrating continuous time movement models (ctmm) with the access to the Google Earth Engine cloud-based data catalogue through rgee. Based on move files of animal trajectories, satellite imagery from either Landsat-8 or Sentinel-2 can be downloaded to local and plotted (at the moment the Landsat-8 integration is still not as smooth as that of Sentinel-2). Plotting of occurence and home range estimations based on ctmm is possible, including plots for band value probability based on occurence and home range estimations.
