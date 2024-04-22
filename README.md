@@ -45,6 +45,7 @@ procInd <- calcIndices(collection, c('NDVI', 'NDWI', 'NDSI'))
 visTrajEe(traj, procInd, list("B4", "B3", "B2"))
 visTrajEe(traj, procInd, list("NDVI"))
 ```
+##### Rstudio map viewer allows for zooming in and out of the data frame. For the data download, the satellite image is clipped to the trajectory bounds.
 <p align="center">
   <img width="400" src="images/mapviewer.png">
 </p>
