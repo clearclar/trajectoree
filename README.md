@@ -10,9 +10,7 @@ Further information on the [ctmm package](https://ctmm-initiative.github.io/ctmm
 ```
 devtools::install_github("clearclar/trajectoree")
 ```
-## Examples 
-#### Workflow part I
-<img src="flowchart1.png" alt="drawing" width="400"/>
+## Workflow 
 
 ```
 library(rgee)
@@ -21,7 +19,7 @@ library(trajectoree)
 
 ee_Initialize(drive = TRUE)
 ```
-##### Import a move file
+#### Import a move file
 ```
 move_data <- move("move_data.csv")
 ```
@@ -29,7 +27,8 @@ move_data <- move("move_data.csv")
 ```
 traj <- intergrate_move(move_data)
 ```
-
+#### Workflow part I
+<img src="flowchart1.png" alt="drawing" width="400"/>
 
 ## References
 ## Further development
