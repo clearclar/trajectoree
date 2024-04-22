@@ -63,12 +63,11 @@ visTrajDown(traj, 'img')
 
 #### Workflow part II
 ```R
-# Use the move data
+# Use the move data to calculate ctmm for the trajectory
 traj_model <- traj_mod(move_data)
 
-# Plot a band value against the occurence distribution in a scatter plot.
-visOcc_UD_plot(traj_model, 'img', band='NDVI')
-visOcc_AKDE_plot(traj_model, 'img', band='B4')
+# Plot a band value against the occurence distribution in a scatter plot for the Autocorrelated Kernel Density Estimation (akde) or occurence distribution (od).
+visOcc_plot(traj_model, 'img', band='NDVI', info='akde', plottype='raster')
 ```
 ##### Plot NDVi against occurence distribution
 <p align="center">
