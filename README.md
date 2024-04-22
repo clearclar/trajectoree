@@ -32,6 +32,7 @@ bands <- list("B4", "B3", "B2", 'B8', 'B11')
 
 # Define an Earth Engine image collection. Define trajectory file, sensor (S2/L8),
 # a list of bands and a maximum cloud cover percentage.
+# At the moment, the process is optimized for Sentinel-2 data and may be buggy for Landsat-8.
 collection <- defCol(traj, 'S2', bands, 40)
 
 # Calculate indices for the image collection.
