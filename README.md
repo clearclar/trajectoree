@@ -44,7 +44,12 @@ procInd <- calcIndices(collection, c('NDVI', 'NDWI', 'NDSI'))
 # Visualize either an RGB image or an index median composite of the collection in the map viewer panel.
 visTrajEe(traj, procInd, list("B4", "B3", "B2"))
 visTrajEe(traj, procInd, list("NDVI"))
+```
+<p align="center">
+  <img width="400" src="images/mapviewer.png">
+</p>
 
+```
 # Download the satellite imagery as a median composite or individual images to your local machine.
 # A copy will be saved to your Google Drive.
 downRast(traj, procInd)
