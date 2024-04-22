@@ -66,7 +66,10 @@ visTrajDown(traj, 'img')
 # Use the move data
 traj_model <- traj_mod(move_data)
 ```
-
+##### Plot NDVi against occurence distribution
+<p align="center">
+  <img width="450" src="images/a17ee1a1-49de-447d-8fd0-b8157ad5279c.png">
+</p>
 
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
