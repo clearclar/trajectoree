@@ -71,7 +71,7 @@ visOcc_plot(traj_model, 'img', band='NDVI', info='akde', plottype='raster')
 ```
 ##### Plot NDVi against occurence distribution
 <p align="center">
-  <img width="450" src="images/a17ee1a1-49de-447d-8fd0-b8157ad5279c.png">
+  <img width="450" src="c828a24e-c13c-4038-a372-fc428ab8d988.png">
 </p>
 
 ## Further development
