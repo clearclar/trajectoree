@@ -7,7 +7,8 @@ How to get move data.
 ## Installation 
 Make sure to install rgee properly.
 ## Examples 
-Workflow, maybe flowchart.
+#### Workflow part I
+![alt text](flowchart1.png)
 ## References
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source.
