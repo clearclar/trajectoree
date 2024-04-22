@@ -1,4 +1,4 @@
-<img align="right" width="300" height="300" src="Picture 4.png">
+<img align="right" width="200" height="200" src="Picture 4.png">
 
 # trajectoree
 
