@@ -1,5 +1,5 @@
 # trajectoree
-<img align="right" width="170" src="images/Picture 2.png">
+<img align="right" width="170" src="images/Picture 1.png">
 
 #### Linking move data to reflectance values from satellite imagery and visualizing occurence probability.
 
