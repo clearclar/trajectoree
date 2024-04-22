@@ -4,7 +4,12 @@
 \alias{defCol}
 \title{Title}
 \usage{
-defCol(traj, product, bands, cloudcover)
+defCol(
+  traj,
+  product,
+  bands = c("blue", "green", "red", "NIR", "SWIR"),
+  cloudcover
+)
 }
 \arguments{
 \item{product}{one of 'S2' or 'L8'}

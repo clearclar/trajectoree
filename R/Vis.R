@@ -12,7 +12,7 @@
 #' visTraj(movefile, collection)
 #'
 #' @export
-visTrajEe <- function(traj, collection, bands){
+visTrajEe <- function(traj, collection, visparams='RGB'){
   if (unlist(class(traj[1]))[1] == 'sf'){
     traj_sf <- traj
   }
@@ -25,7 +25,7 @@ visTrajEe <- function(traj, collection, bands){
 
   Map$centerObject(traj_ee$geometry()$bounds())
 
-  if (length(bands) == 1 & (bands[[1]] == 'NDVI' | bands[[1]] == 'NDWI' | bands[[1]] == 'NDSI')){
+  if (visparams == 'NDVI' | 'NDWI' | 'NDSI'){
     Map$addLayer(VisCol$median(),
                  visParams = list(bands = bands, min = 0, max = 1),
                  name = bands[[1]]) +
@@ -34,9 +34,9 @@ visTrajEe <- function(traj, collection, bands){
                    name = "Trajectory points")
   }
 
-  else {
+  else if (visparams == 'RGB') {
     Map$addLayer(VisCol$median(),
-                 visParams = list(bands = bands, min = 0, max = 3000),
+                 visParams = list(bands = c('B4', 'B3', 'B2'), min = 0, max = 3000),
                  name = "Satellite imagery") +
       Map$addLayer(traj_ee,
                    visParams = list(color = 'red'),

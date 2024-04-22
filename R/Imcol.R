@@ -16,7 +16,7 @@
 #' defCol(movefile, 'S2', c('B2', 'B3', 'B4'), 10)
 #'
 #' @export
-defCol <- function (traj, product, bands, cloudcover) {
+defCol <- function (traj, product, bands=c('blue', 'green', 'red', 'NIR', 'SWIR'), cloudcover) {
   if (unlist(class(traj[1]))[1] == 'sf'){
     traj_sf <- traj
   }
@@ -41,18 +41,52 @@ defCol <- function (traj, product, bands, cloudcover) {
 
   roi_ee <- ee$FeatureCollection(traj_ee)
 
-  bands <- ee$List(bands)
   start_date <- as.Date(traj_sf$timestamp[[1]])
   end_date <- as.Date(tail(traj_sf$timestamp, 1)[[1]])
   print(paste0('Start date: ', start_date, ', End date: ', end_date))
 
   if (product == 'S2') {
     product_collection <- ee$ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
+    for (i in 1:length(bands)){
+      if (bands[i] == 'blue'){
+        bands[i] <- 'B2'
+      }
+      if (bands[i] == 'green'){
+        bands[i] <- 'B3'
+      }
+      if (bands[i] == 'red'){
+        bands[i] <- 'B4'
+      }
+      if (bands[i] == 'NIR'){
+        bands[i] <- 'B8'
+      }
+      if (bands[i] == 'SWIR'){
+        bands[i] <- 'B11'
+      }
+    }
   } else if (product == 'L8') {
     product_collection <- ee$ImageCollection('LANDSAT/LC08/C02/T1_L2')
+    for (i in 1:length(bands)){
+      if (bands[i] == 'blue'){
+        bands[i] <- 'SR_B2'
+      }
+      if (bands[i] == 'green'){
+        bands[i] <- 'SR_B3'
+      }
+      if (bands[i] == 'red'){
+        bands[i] <- 'SR_B4'
+      }
+      if (bands[i] == 'NIR'){
+        bands[i] <- 'SR_B5'
+      }
+      if (bands[i] == 'SWIR'){
+        bands[i] <- 'SR_B6'
+      }
+    }
   } else {
     stop('Product not available')
   }
+  bands <- ee$List(bands)
 
   while (TRUE) {
     collection <- product_collection$filterBounds(roi_ee)$
