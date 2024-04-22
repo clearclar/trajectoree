@@ -63,4 +63,4 @@ visTrajDown(traj, 'img')
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
 * Alterations to extend the move and ctmm packages more efficiently.
-* Incorporate move2.
+* Incorporation of move2.
