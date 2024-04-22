@@ -65,6 +65,10 @@ visTrajDown(traj, 'img')
 ```R
 # Use the move data
 traj_model <- traj_mod(move_data)
+
+# Plot a band value against the occurence distribution in a scatter plot.
+visOcc_UD_plot(traj_model, 'img', band='NDVI')
+visOcc_AKDE_plot(traj_model, 'img', band='B4')
 ```
 ##### Plot NDVi against occurence distribution
 <p align="center">
