@@ -168,6 +168,9 @@ downRast <- function(traj, collection, filename='img', median=TRUE, scale=30) {
     if (tolower(decision) == 'n') {
       stop("Aborted, please alter your time range or cloud cover percentage.", call. = FALSE)
     }
+    else if (tolower(decision) == 'y'){
+      collection_down <- collection
+    }
   }
 
   # create median image
@@ -181,7 +184,7 @@ downRast <- function(traj, collection, filename='img', median=TRUE, scale=30) {
   })
 
   # download to local
-  task <- ee_imagecollection_to_local(
+  task <- rgee::ee_imagecollection_to_local(
     ic = downCol,
     region = bounds,
     scale = scale,
@@ -193,4 +196,3 @@ downRast <- function(traj, collection, filename='img', median=TRUE, scale=30) {
   )
 
 }
-
