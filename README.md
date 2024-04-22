@@ -4,6 +4,10 @@
 #### Linking move data to reflectance values from satellite imagery and visualizing occurence probability.
 
 A package, integrating continuous time movement models (ctmm) with the access to the Google Earth Engine cloud-based data catalogue through rgee. Based on move files of animal trajectories, satellite imagery from either Landsat-8 or Sentinel-2 can be downloaded to local and plotted (at the moment the Landsat-8 integration is still not as smooth as that of Sentinel-2). Plotting of occurence and home range estimations based on ctmm is possible, including plots for band value probability based on occurence and home range estimations.
+The main goasl of this package thus are:
+* bla
+* bla
+* bla
 ## rgee, ctmm and move
 Animal movement data can be accessed through the [move package](https://cran.r-project.org/web/packages/move/index.html).
 Further information on the [ctmm package](https://ctmm-initiative.github.io/ctmm/) an learning resources can be found [here](https://animove.org/elearning/).
@@ -67,7 +71,6 @@ traj_model <- traj_mod(move_data)
 ```
 
 
-## References
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
 * Alterations to extend the move and ctmm packages more efficiently.
