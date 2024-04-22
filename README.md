@@ -44,9 +44,7 @@ visTrajEe(traj, procInd, list("NDVI"))
 # A copy will be saved to your Google Drive.
 downRast(traj, procInd)
 
-# needs legend
-visTrajDown_base(traj, 'img')
-# sometimes legend discrete???
+# Create a plot showing the satellite image and the sampling points
 visTrajDown(traj, 'img')
 ```
 #### Workflow part I
