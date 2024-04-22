@@ -68,6 +68,9 @@ traj_model <- traj_mod(move_data)
 
 # Plot a band value against the occurence distribution in a scatter plot for the Autocorrelated Kernel Density Estimation (akde) or occurence distribution (od).
 visOcc_plot(traj_model, 'img', band='NDVI', info='akde', plottype='raster')
+
+# Plot the akde or od on top of the downloaded satellite imagery.
+visOcc_map(traj_model, 'img', info='od')
 ```
 ##### Plot NDVi against occurence distribution
 <img width="450" src="images/c828a24e-c13c-4038-a372-fc428ab8d988.png"> <img width="400" src="images/552069d7-b687-4a00-a0f3-88ae691d6006.png">
