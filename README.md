@@ -26,8 +26,24 @@ move_data <- move("move_data.csv")
 # Sentinel-2 data is available reliably after 2019, Landsat-8 after 2013.
 traj <- intergrate_move(move_data)
 
-# list of bands to be selected
+# List of bands to be selected.
 bands <- list("B4", "B3", "B2", 'B8', 'B11')
+
+# Define an Earth Engine image collection. Define trajectory file, sensor (S2/L8), a list of bands and a maximum cloud cover percentage.
+collection <- defCol(traj, 'S2', bands, 40)
+procInd <- calcIndices(collection, c('NDVI', 'NDWI', 'NDSI'))
+
+# add title and stuff?
+visTrajEe(traj, procInd, list("B4", "B3", "B2"))
+visTrajEe(traj, procInd, list("NDVI"))
+
+# get buffer around trajectory
+downRast(traj, procInd, median=TRUE)
+
+# needs legend
+visTrajDown_base(traj, 'img')
+# sometimes legend discrete???
+visTrajDown(traj, 'img')
 ```
 #### Workflow part I
 <img src="flowchart1.png" alt="drawing" width="400"/>
