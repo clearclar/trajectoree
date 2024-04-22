@@ -77,4 +77,4 @@ traj_model <- traj_mod(move_data)
 * Incorporation of move2.
 
 ## Further possible logos
-<img width="150" src="images/Picture 2.png"> <img width="190" src="images/Picture 3.png"> <img width="180" src="images/Picture 4.png"> <img width="150" src="images/Picture 5.png">
+<img width="140" src="images/Picture 2.png"> <img width="190" src="images/Picture 3.png"> <img width="180" src="images/Picture 4.png"> <img width="140" src="images/Picture 5.png">
