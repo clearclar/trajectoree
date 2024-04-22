@@ -14,6 +14,23 @@ devtools::install_github("clearclar/trajectoree")
 #### Workflow part I
 <img src="flowchart1.png" alt="drawing" width="400"/>
 
+```
+library(rgee)
+library(move)
+library(trajectoree)
+
+ee_Initialize(drive = TRUE)
+```
+##### Import a move file
+```
+move_data <- move("move_data.csv")
+```
+#### Resample file size
+```
+traj <- intergrate_move(move_data)
+```
+
+
 ## References
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
