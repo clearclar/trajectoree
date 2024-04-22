@@ -50,6 +50,8 @@ visTrajDown(traj, 'img')
 ```
 <img src="flowchart1.png" alt="drawing" width="400"/>
 
+#### Workflow part II
+
 ## References
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
