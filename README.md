@@ -73,6 +73,10 @@ visOcc_plot(traj_model, 'img', band='NDVI', info='akde', plottype='raster')
 <p align="center">
   <img width="450" src="images/c828a24e-c13c-4038-a372-fc428ab8d988.png">
 </p>
+<p align="center">
+  <img width="450" src="images/552069d7-b687-4a00-a0f3-88ae691d6006.png">
+</p>
+
 
 ## Further development
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
