@@ -75,3 +75,6 @@ traj_model <- traj_mod(move_data)
 * Depending on the continuation of the rgee package, the trajectoree package may switch to Copernicus as a data source. Although this drastically reduces the variety of available data, it may reduce buggines.
 * Alterations to extend the move and ctmm packages more efficiently.
 * Incorporation of move2.
+
+## Further possible logos
+<img width="170" src="images/Picture 2.png"> <img width="170" src="images/Picture 3.png"> <img width="170" src="images/Picture 4.png"> <img width="170" src="images/Picture 5.png"> <img width="170" src="images/Picture 6.png">
