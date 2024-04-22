@@ -7,8 +7,8 @@ Instructions on how to install rgee can be found [here](https://github.com/r-spa
 Further information on the [ctmm package](https://ctmm-initiative.github.io/ctmm/) an learning resources can be found [here](https://animove.org/elearning/).
 ## Usage 
 ## Installation 
-´´´r
-
+´´´
+devtools::install_github("clearclar/trajectoree")
 ´´´
 ## Examples 
 #### Workflow part I
