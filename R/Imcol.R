@@ -137,7 +137,7 @@ calcIndices <- function(collection, indices){
     if (indices[i]=='NDWI'){
       index_calc <- function(image){
         image <- ee$Image(image)
-        image <- image$addBands(image$normalizedDifference(list('B8', 'B4'))$rename('NDWI'))
+        image <- image$addBands(image$normalizedDifference(list('B3', 'B8'))$rename('NDWI'))
         return(image)
       }
     }
