@@ -1,7 +1,8 @@
 # trajectoree - a package linking move data to satellite imagery and visualizing occurence probability and homerange
 
 A package, integrating continuous time movement modeling (ctmm) with data access through rgee. Based on move files of animal trajectories, satellite imagery from eitehr Landsat-8 or Sentinel-2 can be downloaded to local and plotted. Plotting of occurence and home range estimations based on ctmm is possible, including plots for band value probability based on occurence and home range estimations.
-## rgee, ctmm and move How are they relevant for my package?
+## rgee, ctmm and move
+Animal movement data can be accessed through the [move package](https://cran.r-project.org/web/packages/move/index.html).
 How to get move data.
 ## Usage 
 ## Installation 
