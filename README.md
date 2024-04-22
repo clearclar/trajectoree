@@ -70,12 +70,8 @@ traj_model <- traj_mod(move_data)
 visOcc_plot(traj_model, 'img', band='NDVI', info='akde', plottype='raster')
 ```
 ##### Plot NDVi against occurence distribution
-<p align="center">
-  <img width="400" src="images/c828a24e-c13c-4038-a372-fc428ab8d988.png">
-</p>
-<p align="center">
-  <img width="400" src="images/552069d7-b687-4a00-a0f3-88ae691d6006.png">
-</p>
+<img width="400" src="images/c828a24e-c13c-4038-a372-fc428ab8d988.png">
+<img width="400" src="images/552069d7-b687-4a00-a0f3-88ae691d6006.png">
 
 
 ## Further development
