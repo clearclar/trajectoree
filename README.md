@@ -49,7 +49,7 @@ visTrajEe(traj, procInd, list("NDVI"))
 # A copy will be saved to your Google Drive.
 downRast(traj, procInd)
 ```
-visTrajDown_base enables plotting using the R base package. visTrajDown plots using ggplot2.
+##### visTrajDown_base enables plotting using the R base package. visTrajDown plots using ggplot2.
 <img src="images/36edf328-a566-4f7a-b2bd-898f36f736ff.png" alt="drawing" width="350"/> <img src="images/e0e083db-6b7b-4d03-b96b-ce4005916f8a.png" alt="drawing" width="450" />
 ```R
 # Create a plot showing the satellite image and the sampling points
