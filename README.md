@@ -6,7 +6,6 @@ A package, integrating continuous time movement models (ctmm) with the access to
 Animal movement data can be accessed through the [move package](https://cran.r-project.org/web/packages/move/index.html).
 Further information on the [ctmm package](https://ctmm-initiative.github.io/ctmm/) an learning resources can be found [here](https://animove.org/elearning/).
 Installation instructions of rgee can be found [here](https://github.com/r-spatial/rgee). 
-## Usage 
 ## Installation 
 ```
 devtools::install_github("clearclar/trajectoree")
