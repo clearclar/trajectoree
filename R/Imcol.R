@@ -66,14 +66,14 @@ defCol <- function (traj, product, bands, cloudcover) {
     }
     new_start <- readline(prompt = paste0('Please specify a start date no later than: ', start_date, ' and before ', end_date, ' [YYYY-MM-DD]: '))
     new_end <- readline(prompt = paste0('Please specify an end date no earlier than: ', end_date, ' and later than ', new_start, ' [YYYY-MM-DD]: '))
-    if (new_start < start_date | new_end > end_date) {
-      stop('The new time frame is not within the original time frame')
-    } else {
-      start_date <- as.Date(new_start)
-      end_date <- as.Date(new_end)
-    }
-    # start_date <- as.Date(new_start)
-    # end_date <- as.Date(new_end)
+    # if (new_start < start_date | new_end > end_date) {
+    #   stop('The new time frame is not within the original time frame')
+    # } else {
+    #   start_date <- as.Date(new_start)
+    #   end_date <- as.Date(new_end)
+    # }
+    start_date <- as.Date(new_start)
+    end_date <- as.Date(new_end)
   }
 
   return(collection)
