@@ -82,3 +82,33 @@ visOcc_UD_plot <- function(traj_model, img_filename, band){
                main = paste0('Occurence vs ', toString(band)), ylab = 'Occurence')
 
 }
+
+#' Title
+#'
+#' @param traj_model a ctmm model, output of traj_mod()
+#' @param img_filename the name of the image file
+#'
+#' @importFrom ctmm raster
+#' @importFrom trajectoree reclassNA
+#' @import terra
+#'
+#' @return a map of the occurence on top of a satellite image
+#' @export
+#'
+#' @examples
+#' visOcc_AKDE_map(traj_model, 'img_filename')
+visOcc_AKDE_map <- function(traj_model, img_filename){
+  image <- terra::rast(paste0(img_filename, '.tif'))
+
+  # Autocorrelated Kernel Density Estimation
+  akde_rast <- terra::rast(ctmm::raster(traj_model$akde))
+  akde_rast_invert <- terra::app(akde_rast, function(i)
+    (i-1)*(-1))
+  akde_rast_cutoff <- trajectoree::reclassNA(akde_rast_invert, 0.05)
+  akde_rast_reproject <- terra::project(akde_rast_cutoff, crs(image))
+
+  image <- terra::resample(image, akde_rast_reproject, method = "bilinear")
+
+  terra::plotRGB(image, ext = terra::ext(akde_rast_reproject), legend=FALSE, mar=c(3.1, 3.1, 2.1, 7.1), stretch='lin', axes=TRUE)
+  terra::plot(akde_rast_reproject, add=TRUE, alpha = 0.9)
+}
