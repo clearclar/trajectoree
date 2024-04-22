@@ -37,7 +37,7 @@ collection <- defCol(traj, 'S2', bands, 40)
 # Calculate indices for the image collection.
 procInd <- calcIndices(collection, c('NDVI', 'NDWI', 'NDSI'))
 
-# Visualize either an RGB image or an index in the map viewer panel.
+# Visualize either an RGB image or an index median composite of the collection in the map viewer panel.
 visTrajEe(traj, procInd, list("B4", "B3", "B2"))
 visTrajEe(traj, procInd, list("NDVI"))
 
