@@ -79,4 +79,4 @@ visOcc_plot(traj_model, 'img', band='NDVI', info='akde', plottype='raster')
 * Incorporation of move2.
 
 ## Further possible logos
-<img width="140" src="images/Picture 2.png"> <img width="140" src="images/Picture 1.png"> <img width="180" src="images/Picture 4.png"> <img width="140" src="images/Picture 5.png">
+<img width="140" src="images/Picture 5.png"> <img width="140" src="images/Picture 2.png"> <img width="140" src="images/Picture 1.png"> <img width="180" src="images/Picture 4.png"> 
