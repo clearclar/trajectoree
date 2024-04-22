@@ -12,7 +12,7 @@
 #' visTraj(movefile, collection)
 #'
 #' @export
-visTrajEe <- function(traj, collection, visparams='RGB'){
+visTrajEe <- function(traj, collection, bands='RGB'){
   if (unlist(class(traj[1]))[1] == 'sf'){
     traj_sf <- traj
   }
@@ -25,7 +25,7 @@ visTrajEe <- function(traj, collection, visparams='RGB'){
 
   Map$centerObject(traj_ee$geometry()$bounds())
 
-  if (visparams == 'NDVI' | 'NDWI' | 'NDSI'){
+  if (length(bands) == 1 & bands[1] == 'NDVI' | bands[1] == 'NDWI' | bands[1] == 'NDSI'){
     Map$addLayer(VisCol$median(),
                  visParams = list(bands = bands, min = 0, max = 1),
                  name = bands[[1]]) +
@@ -34,9 +34,9 @@ visTrajEe <- function(traj, collection, visparams='RGB'){
                    name = "Trajectory points")
   }
 
-  else if (visparams == 'RGB') {
+  else if (length(bands) == 3){
     Map$addLayer(VisCol$median(),
-                 visParams = list(bands = c('B4', 'B3', 'B2'), min = 0, max = 3000),
+                 visParams = list(bands = bands, min = 0, max = 3000),
                  name = "Satellite imagery") +
       Map$addLayer(traj_ee,
                    visParams = list(color = 'red'),
@@ -67,7 +67,7 @@ visTrajDown_base <- function(traj, filename){
   }
 
   image <- terra::rast(paste0(filename, '.tif'))
-  terra::plotRGB(image, r = 1, g = 2, b = 3, stretch = 'lin', axes=TRUE, mar=c(3.1, 3.1, 2.1, 7.1))
+  terra::plotRGB(image, r = 1, g = 2, b = 3, stretch = 'lin', axes=TRUE, mar=c(3.1, 3.1, 2.1, 7.1), main = "RGB Plot with Trajectory Overlay")
   plot(traj_sf$geometry, add = TRUE, type = 'p', pch = 20, col = 'red', cex = .7)
   }
 
@@ -100,5 +100,6 @@ visTrajDown <- function(traj, filename){
                                    interpolate = TRUE,
                                    max_col_value = 3000) +
     geom_sf(data = traj_sf, aes(colour = timestamp)) +
-    theme_light()
+    theme_light() +
+    ggtitle("RGB Plot with Trajectory Overlay")
 }
