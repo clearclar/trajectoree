@@ -61,6 +61,11 @@ visTrajDown(traj, 'img')
 </p>
 
 #### Workflow part II
+```R
+# Use the move data
+traj_model <- traj_mod(move_data)
+```
+
 
 ## References
 ## Further development
