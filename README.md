@@ -21,7 +21,7 @@ library(trajectoree)
 ee_Initialize(drive = TRUE)
 
 # Import a move file.
-move_data <- move("move_data.csv")
+move_data <- move(system.file("extdata","leroy.csv.gz",package="move"))
 
 # Resample sampling interval and time range if needed, depending on the sensor you wish to use.
 # Sentinel-2 data is available reliably after 2019, Landsat-8 after 2013.
