@@ -26,7 +26,7 @@ traj_mod <- function(traj){
   traj_mod <- list()
   traj_mod$svf <- ctmm::variogram(traj_ctmm)
   traj_mod$guess <- ctmm::ctmm.guess(traj_ctmm, interactive=FALSE)
-  print(traj_mod$guess)
+
   traj_mod$fits <- ctmm::ctmm.select(traj_ctmm, traj_mod$guess, IC = "AIC", trace=1, verbose=TRUE, cores=1)
   # traj_mod$fits[["iid"]] <- ctmm::ctmm.fit(traj_ctmm, ctmm::ctmm(isotropic=TRUE))
   # traj_mod$fits[["iid.anisotropic"]] <- ctmm::ctmm.fit(traj_ctmm)

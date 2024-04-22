@@ -4,7 +4,7 @@
 \alias{visOcc_AKDE_plot}
 \title{Title}
 \usage{
-visOcc_AKDE_plot(traj_model, img_filename, band)
+visOcc_AKDE_plot(traj_model, img_filename, band, info, plottype = "ggplot")
 }
 \arguments{
 \item{traj_model}{a ctmm model, output of traj_mod()}
