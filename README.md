@@ -29,16 +29,20 @@ traj <- intergrate_move(move_data)
 # List of bands to be selected.
 bands <- list("B4", "B3", "B2", 'B8', 'B11')
 
-# Define an Earth Engine image collection. Define trajectory file, sensor (S2/L8), a list of bands and a maximum cloud cover percentage.
+# Define an Earth Engine image collection. Define trajectory file, sensor (S2/L8),
+# a list of bands and a maximum cloud cover percentage.
 collection <- defCol(traj, 'S2', bands, 40)
+
+# Calculate indices for the image collection.
 procInd <- calcIndices(collection, c('NDVI', 'NDWI', 'NDSI'))
 
-# add title and stuff?
+# Visualize either an RGB image or an index in the map viewer panel.
 visTrajEe(traj, procInd, list("B4", "B3", "B2"))
 visTrajEe(traj, procInd, list("NDVI"))
 
-# get buffer around trajectory
-downRast(traj, procInd, median=TRUE)
+# Download the satellite imagery as a median composite or individual images to your local machine.
+# A copy will be saved to your Google Drive.
+downRast(traj, procInd)
 
 # needs legend
 visTrajDown_base(traj, 'img')
