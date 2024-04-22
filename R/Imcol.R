@@ -147,7 +147,7 @@ calcIndices <- function(collection, indices){
 #' @examples
 #' downRast(traj_sf, collection, 'img', TRUE, 10)
 downRast <- function(traj, collection, filename='img', median=TRUE, scale=30) {
-  at("Saving to current working directory: ", getwd(), "\n")
+  cat("Saving to current working directory: ", getwd())
 
   # Convert traj to sf if it's not already in sf format
   if (!inherits(traj, "sf")) {
