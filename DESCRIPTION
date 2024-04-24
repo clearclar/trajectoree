@@ -1,6 +1,6 @@
 Package: trajectoree
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 0.2.0
 Authors@R: 
     person("Clara", "Vydra", , "clara.vydra@stud-mail.uni-wuerzburg.de", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
