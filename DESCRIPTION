@@ -9,3 +9,15 @@ License: use_mit_license()
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+Imports:
+  rgee,
+  utils,
+  sf,
+  terra,
+  ctmm,
+  lubridate,
+  padr,
+  dplyr,
+  moveVis,
+  ggplot2,
+  tidyterra
