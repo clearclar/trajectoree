@@ -1,5 +1,5 @@
 # trajectoree
-<img align="right" width="170" src="images/Picture 3.png">
+<img align="right" width="170" src="images/Picture 5.png">
 
 #### Linking move data to reflectance values from satellite imagery and visualizing occurence probability.
 
@@ -91,4 +91,4 @@ visOcc_map(traj_model, 'img', info='od')
 * Incorporation of move2.
 
 ## Further possible logos
-<img width="140" src="images/Picture 6.png">  <img width="140" src="images/Picture 5.png"> <img width="140" src="images/Picture 2.png"> <img width="140" src="images/Picture 1.png"> <img width="180" src="images/Picture 4.png">
+<img width="140" src="images/Picture 6.png">  <img width="140" src="images/Picture 3.png"> <img width="140" src="images/Picture 2.png"> <img width="140" src="images/Picture 1.png"> <img width="180" src="images/Picture 4.png">
